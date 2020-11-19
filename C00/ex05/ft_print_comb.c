@@ -6,30 +6,30 @@
 /*   By: hcho <hcho@42.fr>                          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 20:23:47 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/19 20:47:54 by hcho             ###   ########.fr       */
+/*   Updated: 2020/11/20 07:28:07 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void    ft_print_comb(void)
+void	ft_print_comb(void)
 {
-    char word[5];
+	char word[5];
 
-    word[0] = '0' - 1;
-    word[3] = ',';
-    word[4] = ' ';
-    while (++word[0] <= '6')
-    {
-        word[1]=word[0];
-        while (++word[1] <= '8')
-        {
-            word[2]=word[1];
-            while (++word[2] <= '9')
-            {
-                write(1, word, 5);
-            }
-        }
-    }
-    write(1, "789", 3);
+	word[0] = '0' - 1;
+	word[3] = ',';
+	word[4] = ' ';
+	while (++word[0] <= '6')
+	{
+		word[1] = word[0];
+		while (++word[1] <= '8')
+		{
+			word[2] = word[1];
+			while (++word[2] <= '9')
+			{
+				write(1, word, 5);
+			}
+		}
+	}
+	write(1, "789", 3);
 }
