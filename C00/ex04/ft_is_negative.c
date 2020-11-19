@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
+/*   ft_is_negative.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hcho <hcho@42.fr>                          +#+  +:+       +#+        */
+/*   By: hcho </var/mail/hcho>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/19 05:41:15 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/19 20:08:12 by hcho             ###   ########.fr       */
+/*   Created: 2020/11/19 20:16:54 by hcho              #+#    #+#             */
+/*   Updated: 2020/11/19 20:17:56 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_print_numbers(void)
+void	ft_is_negative(int n)
 {
-	char character;
-
-	character = '0';
-	while (character <= '9')
-	{
-		write(1, &character, 1);
-		character++;
-	}
+	if (n < 0)
+		write(1, "N", 1);
+	else
+		write(1, "P", 1);
 }
