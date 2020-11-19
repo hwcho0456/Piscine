@@ -6,22 +6,20 @@
 /*   By: hcho <hcho@42.fr>                          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 02:15:15 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/19 02:17:36 by hcho             ###   ########.fr       */
+/*   Updated: 2020/11/19 19:45:55 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_print_reverse_alphabet(void)
+#include <unistd.h>
+
+void	ft_print_alphabet(void)
 {
-	char z = 'z';
-	char c = 'z';
-	int cnt = 0;
-	
-	while(cnt<25)
+	char character;
+
+	character = 'z';
+	while (character >= 'a')
 	{
-		write(1,&c,1);
-		cnt++;
-		c=z-cnt;
+		write(1, &character, 1);
+		character--;
 	}
-	
-	return 0;
 }

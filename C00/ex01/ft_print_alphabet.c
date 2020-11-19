@@ -6,22 +6,20 @@
 /*   By: hcho <hcho@42.fr>                          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 02:08:55 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/19 02:13:53 by hcho             ###   ########.fr       */
+/*   Updated: 2020/11/19 19:43:51 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_print_alphabet(void)
-{
-	char a = 'a';
-	char c = 'a';
-	int cnt=0;
+#include <unistd.h>
 
-	while(cnt<26)
+void	ft_print_alphabet(void)
+{
+	char charcter;
+
+	character = 'a';
+	while (character <= 'z')
 	{
-		write(1,$a,1);
-		cnt++;
-		c=a+cnt;
+		write(1, &character, 1);
+		character++;
 	}
-	
-	return;
 }

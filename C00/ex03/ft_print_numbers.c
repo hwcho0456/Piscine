@@ -6,31 +6,20 @@
 /*   By: hcho <hcho@42.fr>                          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 05:41:15 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/19 05:48:34 by hcho             ###   ########.fr       */
+/*   Updated: 2020/11/19 19:56:24 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include stdio.h
+#include <unistd.h>
 
-void    ft_putchar(char c) 
+void	ft_print_numbers(void)
 {
-	write(1, &c, 1);
-}
+    char character;
 
-void    ft_print_numbers(void)
-{
-	int n;
-	n=0;
-	
-	while(n<10)
-	{
-		ft_putchar(n);
-		n++;
-	}
-}
-
-int   main(void)
-{
-	ft_print_numbers(void);
-	return 0;
+    character = '0';
+    while (character <= '9')
+    {
+            write(1, &character, 1);
+            character++;
+    }
 }
