@@ -6,13 +6,13 @@
 /*   By: hcho <hcho@42.fr>                          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 02:15:15 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/21 22:08:48 by hcho             ###   ########.fr       */
+/*   Updated: 2020/11/22 01:46:53 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_print_alphabet(void)
+void	ft_print_reverse_alphabet(void)
 {
 	char ch;
 
