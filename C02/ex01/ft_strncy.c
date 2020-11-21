@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strncy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hcho <hcho@42.fr>                          +#+  +:+       +#+        */
+/*   By: hcho <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/20 07:54:46 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/22 06:22:52 by hcho             ###   ########.fr       */
+/*   Created: 2020/11/21 10:42:42 by hcho              #+#    #+#             */
+/*   Updated: 2020/11/21 10:46:56 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putstr(char *str)
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
 	int len;
 
 	len = 0;
-	while (*(str + len))
+	while (*(src + len) && len < n)
+	{
+		*dest = *src;
 		len++;
-	write(1, str, len);
-}
-
-int main()
-{
-	ft_putstr("asdfasdfasdf");
-	return 0;
+	}
+	*(dest + len) = '\n';
+	return dest;
 }

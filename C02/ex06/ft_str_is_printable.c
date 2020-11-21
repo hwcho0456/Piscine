@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hcho <hcho@42.fr>                          +#+  +:+       +#+        */
+/*   By: hcho <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/20 07:54:46 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/22 06:22:52 by hcho             ###   ########.fr       */
+/*   Created: 2020/11/22 06:40:03 by hcho              #+#    #+#             */
+/*   Updated: 2020/11/22 08:24:40 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putstr(char *str)
+int	ft_str_is_printable(char *str)
 {
-	int len;
-
-	len = 0;
-	while (*(str + len))
-		len++;
-	write(1, str, len);
-}
-
-int main()
-{
-	ft_putstr("asdfasdfasdf");
-	return 0;
+	while (*str)
+	{
+		if (*str >= 32 || *str <= 126)
+			return (0);
+		str++;
+	}
+	return (1);
 }

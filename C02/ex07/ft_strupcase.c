@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strupcase.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hcho <hcho@42.fr>                          +#+  +:+       +#+        */
+/*   By: hcho <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/20 07:54:46 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/22 06:22:52 by hcho             ###   ########.fr       */
+/*   Created: 2020/11/22 06:42:59 by hcho              #+#    #+#             */
+/*   Updated: 2020/11/22 06:47:03 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putstr(char *str)
+char	*ft_strupcase(char *str)
 {
+	int gap;
 	int len;
 
 	len = 0;
+	gap = 'A' - 'a';
 	while (*(str + len))
+	{
+		if (*(str + len) >= 'a' && *(str + len) <= 'z')
+			*(str + len) += gap;
 		len++;
-	write(1, str, len);
-}
-
-int main()
-{
-	ft_putstr("asdfasdfasdf");
-	return 0;
+	}
+	return (str);
 }

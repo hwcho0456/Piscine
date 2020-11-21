@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strcapitalize.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hcho <hcho@42.fr>                          +#+  +:+       +#+        */
+/*   By: hcho <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/20 07:54:46 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/22 06:22:52 by hcho             ###   ########.fr       */
+/*   Created: 2020/11/22 08:29:02 by hcho              #+#    #+#             */
+/*   Updated: 2020/11/22 08:42:57 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putstr(char *str)
+char	*ft_strcapitalize(char *str)
 {
+	int gap;
 	int len;
 
-	len = 0;
-	while (*(str + len))
-		len++;
-	write(1, str, len);
-}
-
-int main()
-{
-	ft_putstr("asdfasdfasdf");
-	return 0;
-}
+	while (*(str + len)) 
+	{
+		if(len == 0 && *(str + len) >= a
+		if (*(str+len)
