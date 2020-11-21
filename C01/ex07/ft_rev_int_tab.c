@@ -6,24 +6,22 @@
 /*   By: hcho <hcho@42.fr>                          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 08:08:25 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/20 08:14:46 by hcho             ###   ########.fr       */
+/*   Updated: 2020/11/22 02:09:22 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_rev_int_tab(int *tab, int size)
 {
-    int i;
-    int j;
-    int temp;
+	int i;
+	int j;
+	int temp;
 
-    i = 0;
-    j = size - 1;
-    while(i < j)
-    {
-        temp = tab[i];
-        tab[i] = tab[j];
-        tab[j] = temp;
-        i++;
-        j--;
-    }
+	i = -1;
+	j = size;
+	while (++i < --j)
+	{
+		temp = tab[i];
+		tab[i] = tab[j];
+		tab[j] = temp;
+	}
 }

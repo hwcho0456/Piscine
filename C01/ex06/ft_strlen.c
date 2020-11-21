@@ -6,16 +6,16 @@
 /*   By: hcho <hcho@42.fr>                          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 08:02:42 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/20 08:05:53 by hcho             ###   ########.fr       */
+/*   Updated: 2020/11/22 02:06:53 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_strlen(char *str)
 {
-    int len;
+	int len;
 
-    len=0;
-    while(str[len])
-        len++;
-    return len;
+	len = 0;
+	while (*(str + len))
+		len++;
+	return (len);
 }

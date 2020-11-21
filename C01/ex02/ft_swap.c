@@ -6,7 +6,7 @@
 /*   By: hcho <hcho@42.fr>                          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 07:48:34 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/21 23:27:23 by hcho             ###   ########.fr       */
+/*   Updated: 2020/11/22 02:07:25 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,4 @@ void	ft_swap(int *a, int *b)
 	temp = *a;
 	*a = *b;
 	*b = temp;
-}
-
-int  main()
-{
-	int a=1;
-	int b=2;
-	printf("%d %d\n", a, b);
-	ft_swap(&a,&b);
-	printf("%d %d", a, b);
-	return 0;
 }
