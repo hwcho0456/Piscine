@@ -6,7 +6,7 @@
 /*   By: hcho <hcho@42.fr>                          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 02:08:55 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/19 19:43:51 by hcho             ###   ########.fr       */
+/*   Updated: 2020/11/21 22:08:19 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,11 @@
 
 void	ft_print_alphabet(void)
 {
-	char charcter;
+	char ch;
 
-	character = 'a';
-	while (character <= 'z')
+	ch = 'a' - 1;
+	while (++ch <= 'z')
 	{
-		write(1, &character, 1);
-		character++;
+		write(1, &ch, 1);
 	}
 }

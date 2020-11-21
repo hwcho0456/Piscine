@@ -6,7 +6,7 @@
 /*   By: hcho <hcho@42.fr>                          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 05:41:15 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/19 20:08:12 by hcho             ###   ########.fr       */
+/*   Updated: 2020/11/21 22:03:17 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,9 @@ void	ft_print_numbers(void)
 {
 	char character;
 
-	character = '0';
-	while (character <= '9')
+	character = '0' - 1;
+	while (++character <= '9')
 	{
 		write(1, &character, 1);
-		character++;
 	}
 }
