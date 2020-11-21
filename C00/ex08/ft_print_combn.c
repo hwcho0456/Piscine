@@ -6,7 +6,7 @@
 /*   By: hcho <hcho@42.fr>                          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 23:08:49 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/20 07:41:59 by hcho             ###   ########.fr       */
+/*   Updated: 2020/11/21 11:39:21 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,10 @@ void	rec(int prev, int n)
 	if (n == g_len)
 	{
 		write(1, g_comb, g_len);
-		write(1, ", ", 2);
+		if (g_comb[0] != '0' + (10 - n))
+			write(1, ", ", 2);
 		return ;
 	}
-	if (prev == 9)
-		return ;
 	curr = prev;
 	while (++curr <= 10 - g_len + n)
 	{
@@ -42,16 +41,10 @@ void	ft_print_combn(int n)
 
 	start = 0;
 	g_len = n;
-	while (start < 10 - n)
+	while (start <= 10 - n)
 	{
 		g_comb[0] = '0' + start;
 		rec(start, 1);
 		start++;
-	}
-	ch = '0' + start;
-	while (ch <= '9')
-	{
-		write(1, &ch, 1);
-		ch++;
 	}
 }
