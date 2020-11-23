@@ -6,19 +6,17 @@
 /*   By: hcho <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/21 10:49:45 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/21 10:59:52 by hcho             ###   ########.fr       */
+/*   Updated: 2020/11/23 11:04:21 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_str_is_alpha(char *str)
 {
-	if (*str)
-		return 1;
 	while (*str)
 	{
-		if (*str < 'a' || ( *str > 'z' && *str < 'A') || *str > 'Z')
-		   return 0;
+		if (!(*str >= 'a' && *str <= 'z') && !(*str >= 'A' && *str <= 'Z'))
+			return (0);
 		str++;
 	}
-	return 1;	
+	return (1);
 }
