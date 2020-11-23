@@ -6,15 +6,18 @@
 /*   By: hcho <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 09:53:04 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/23 12:28:18 by hcho             ###   ########.fr       */
+/*   Updated: 2020/11/23 19:49:05 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	asc_to_hex(int c)
+#include <unistd.h>
+
+void	asc_to_hex(unsigned char c)
 {
 	char *hex;
 
 	hex = "0123456789abcdef";
+	write(1, "\\", 1);
 	write(1, &hex[c / 16], 1);
 	write(1, &hex[c % 16], 1);
 }
@@ -26,10 +29,7 @@ void	ft_putstr_non_printable(char *str)
 		if (*str >= 32 && *str <= 126)
 			write(1, str, 1);
 		else
-		{
-			write(1, "\\", 1);
-			asc_to_hex((int)*str);
-		}
+			asc_to_hex(*str);
 		str++;
 	}
 }

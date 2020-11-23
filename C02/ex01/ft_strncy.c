@@ -6,13 +6,13 @@
 /*   By: hcho <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/21 10:42:42 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/23 10:59:28 by hcho             ###   ########.fr       */
+/*   Updated: 2020/11/23 17:13:48 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	int len;
+	unsigned int len;
 
 	len = 0;
 	while (*(src + len))
