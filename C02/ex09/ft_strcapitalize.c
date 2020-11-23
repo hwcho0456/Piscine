@@ -5,17 +5,36 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hcho <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/22 08:29:02 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/22 08:42:57 by hcho             ###   ########.fr       */
+/*   Created: 2020/11/23 09:16:47 by hcho              #+#    #+#             */
+/*   Updated: 2020/11/23 09:39:35 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strcapitalize(char *str)
 {
-	int gap;
+	int state;
 	int len;
 
-	while (*(str + len)) 
+	state = 0;
+	len = -1;
+	while (*(str + (++len)))
 	{
-		if(len == 0 && *(str + len) >= a
-		if (*(str+len)
+		if (*(str + len) >= '0' && *(str + len) <= '9')
+			state = 1;
+		else if (*(str + len) >= 'a' && *(str + len) <= 'z' && state == 0)
+		{
+			state = 1;
+			*(str + len) += 'A' - 'a';
+		}
+		else if (*(str + len) >= 'A' && *(str + len) <= 'Z')
+		{
+			if (status == 1)
+				*(str + len) += 'a' - 'A';
+			else
+				status = 1;
+		}
+		else
+			status = 0;
+	}
+	return (str);
+}
