@@ -6,7 +6,7 @@
 /*   By: hcho <hcho@42.fr>                          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 22:58:27 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/23 19:48:36 by hcho             ###   ########.fr       */
+/*   Updated: 2020/11/23 20:20:32 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	print_addr(unsigned int addr, int span)
 	write(1, &g_hex[addr % 16], 1);
 }
 
-void	decode_line(char *ptr, int len)
+void	decode_line(unsigned char *ptr, int len)
 {
 	int		i;
 	char	substr[16];
@@ -58,14 +58,14 @@ void	*ft_print_memory(void *addr, unsigned int size)
 {
 	unsigned int	len;
 	int				line_len;
-	char			*ptr;
+	unsigned char	*ptr;
 
 	g_hex = "0123456789abcdef";
 	len = 0;
 	while (len < size)
 	{
 		line_len = (size - len >= 16) ? 16 : size - len;
-		ptr = (char*)addr + len;
+		ptr = (unsigned char*)addr + len;
 		print_addr((unsigned int)ptr, 16);
 		decode_line(ptr, line_len);
 		len += line_len;
