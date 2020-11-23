@@ -6,7 +6,7 @@
 /*   By: hcho <hcho@42.fr>                          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 07:54:46 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/22 06:22:52 by hcho             ###   ########.fr       */
+/*   Updated: 2020/11/24 05:40:27 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,4 @@ void	ft_putstr(char *str)
 	while (*(str + len))
 		len++;
 	write(1, str, len);
-}
-
-int main()
-{
-	ft_putstr("asdfasdfasdf");
-	return 0;
 }
