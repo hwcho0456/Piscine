@@ -6,7 +6,7 @@
 /*   By: hcho <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 06:47:46 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/22 08:27:48 by hcho             ###   ########.fr       */
+/*   Updated: 2020/11/23 11:27:34 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ char	*ft_strlowcase(char *str)
 	len = 0;
 	while (*(str + len))
 	{
-		if ( *(str + len) >= 'A' && *(str + len) <= 'Z')
+		if (*(str + len) >= 'A' && *(str + len) <= 'Z')
 			*(str + len) -= gap;
 		len++;
 	}
-	return str;
+	return (str);
 }

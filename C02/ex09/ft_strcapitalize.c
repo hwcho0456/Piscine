@@ -6,9 +6,11 @@
 /*   By: hcho <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 09:16:47 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/23 09:39:35 by hcho             ###   ########.fr       */
+/*   Updated: 2020/11/23 14:00:42 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h>
 
 char	*ft_strcapitalize(char *str)
 {
@@ -21,20 +23,20 @@ char	*ft_strcapitalize(char *str)
 	{
 		if (*(str + len) >= '0' && *(str + len) <= '9')
 			state = 1;
-		else if (*(str + len) >= 'a' && *(str + len) <= 'z' && state == 0)
+		else if (*(str + len) >= 'a' && *(str + len) <= 'z')
 		{
-			state = 1;
-			*(str + len) += 'A' - 'a';
+			if (state == 0)
+				(*(str + len) += 'A' - 'a') && (state = 1);
 		}
 		else if (*(str + len) >= 'A' && *(str + len) <= 'Z')
 		{
-			if (status == 1)
+			if (state == 1)
 				*(str + len) += 'a' - 'A';
 			else
-				status = 1;
+				state = 1;
 		}
 		else
-			status = 0;
+			state = 0;
 	}
 	return (str);
 }
