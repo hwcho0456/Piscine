@@ -6,7 +6,7 @@
 /*   By: hcho <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/21 10:34:26 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/22 07:02:45 by hcho             ###   ########.fr       */
+/*   Updated: 2020/11/23 10:31:50 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ char	*ft_strcpy(char *dest, char *src)
 	len = 0;
 	while (*(src + len))
 	{
-		*(dest = *src;
+		*(dest + len) = *(src + len);
 		len++;
 	}
 	*(dest + len) = '\n';
-	return dest;
+	return (dest);
 }
