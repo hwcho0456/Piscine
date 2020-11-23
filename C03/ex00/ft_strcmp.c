@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncy.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hcho <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/21 10:42:42 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/24 04:12:52 by hcho             ###   ########.fr       */
+/*   Created: 2020/11/23 15:48:36 by hcho              #+#    #+#             */
+/*   Updated: 2020/11/23 20:40:47 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
-{
-	unsigned int len;
+#include <stdio.h>
+#include <string.h>
 
+int	ft_strcmp(char *s1, char *s2)
+{
+	int len;
+	
 	len = 0;
-	while (*(src + len))
-	{
-		if (len < n)
-			*(dest + len) = *(src + len);
-		len++;
-	}
-	while (len < n)
-	{
-		*(dest + len) = '\0';
-		len++;
-	}
-	return (dest);
+	while((*(s1 + len) == *(s2 + len)) && *(s1 + len) && *(s2 + len))
+	   len++;
+	return (*(s1 + len) - *(s2 + len));
 }
+
+int main()
+{
+	char a[]="abcdefg";
+	char b[]="abc";
+	printf("%d\n",ft_strcmp(a,b));
+	printf("%d\n", strcmp(a,b));
+	return 0;
+}
+	

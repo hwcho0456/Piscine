@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncy.c                                        :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hcho <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/21 10:42:42 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/24 04:12:52 by hcho             ###   ########.fr       */
+/*   Created: 2020/11/24 01:25:31 by hcho              #+#    #+#             */
+/*   Updated: 2020/11/24 01:35:36 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+#include <stdio.h>
+#include <string.h>
+
+char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
-	unsigned int len;
+	int len;
 
 	len = 0;
-	while (*(src + len))
-	{
-		if (len < n)
-			*(dest + len) = *(src + len);
+	while(*(dest + len))
 		len++;
-	}
-	while (len < n)
-	{
-		*(dest + len) = '\0';
-		len++;
-	}
-	return (dest);
+	while(*(src) || nb-- > 0)
+		*(dest + len++) = *(src++);
+	*(dest + len) = '\0';
+	return dest;
+}
+
+int main()
+{
+	char a[20] = "abcdf";
+	char a1[20] = "abcdf";
+	char b[10] = "xyz";
+	printf("%s\n%s", strncat(a,b,7), ft_strncat(a1,b,7));
+	return 0;
 }
