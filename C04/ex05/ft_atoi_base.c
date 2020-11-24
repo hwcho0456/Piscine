@@ -3,7 +3,9 @@
 int ft_atoi(char *str)
 {
   int msb;
+  int number;
   
+  number = 0;
   msb = 1;
   if(*str == '-')
   {
@@ -12,15 +14,28 @@ int ft_atoi(char *str)
   }
   else if(*str == '+')
     str++;
-  
+  while(*str)
+  {
+    if(*str < '0' || *str >'9' )
+      return (msb * number);
+    number = 10 * number + (*str - '0');
+    str++;
+  }
+  return (msb * number);
 }
 
-
-
-
-int ft_atoi_base  (char *str, char *base)
+int rec(int nb, char *base, int len)
 {
-  int len;
+  int digit;
+  
+  if( nb == 0)
+    return 0;
+  rec(nb / 10);
+  write(1, &base[nb % len], 1);
+}
+  
+int ft_atoi_base  (char *str, char *base, int len)
+{
   int i;
   int nb;
   
@@ -37,12 +52,12 @@ int ft_atoi_base  (char *str, char *base)
   }
   if(nb<0)
   {
-    rec(-(nb / len));
+    rec(-(nb / len), base , len);
     write(1, &base[nb % len], 1);
   }
   else
   {
-    rec(nb / len);
+    rec(nb / len, base, len);
     write(1, &base[nb % len], 1);
   }
 }
