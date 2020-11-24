@@ -1,3 +1,23 @@
+#include <unistd.h>
+
+int ft_atoi(char *str)
+{
+  int msb;
+  
+  msb = 1;
+  if(*str == '-')
+  {
+    msb = -1;
+    str++;
+  }
+  else if(*str == '+')
+    str++;
+  
+}
+
+
+
+
 int ft_atoi_base  (char *str, char *base)
 {
   int len;
@@ -17,5 +37,12 @@ int ft_atoi_base  (char *str, char *base)
   }
   if(nb<0)
   {
-    nb = 
+    rec(-(nb / len));
+    write(1, &base[nb % len], 1);
+  }
+  else
+  {
+    rec(nb / len);
+    write(1, &base[nb % len], 1);
+  }
 }
