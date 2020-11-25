@@ -6,12 +6,11 @@
 /*   By: hcho <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 07:45:24 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/25 21:30:47 by hcho             ###   ########.fr       */
+/*   Updated: 2020/11/25 21:33:39 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
 
 void			cur(int nbr, unsigned int len, char *base)
 {

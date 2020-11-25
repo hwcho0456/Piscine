@@ -6,29 +6,39 @@
 /*   By: hcho <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 06:37:41 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/25 21:32:31 by hcho             ###   ########.fr       */
+/*   Updated: 2020/11/25 23:45:45 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
-
-int	ft_atoi(char *str)
+int		is_space(char c)
 {
+	if (c >= '\t' && c <= '\r')
+		return (1);
+	else if (c == ' ')
+		return (1);
+	else
+		return (0);
+}
+
+int		ft_atoi(char *str)
+{
+	unsigned int	minus;
 	unsigned int	len;
-	int				msb;
+	int				sign;
 	int				number;
 
-	number = 0;
-	msb = 1;
-	if (*str == '-')
+	while (is_space(*str))
+		str++;
+	minus = 0;
+	while (*str == '+' || *str == '-')
 	{
-		msb = -1;
+		if (*str == '-')
+			minus++;
 		str++;
 	}
-	else if (*str == '+')
-		str++;
+	sign = (minus % 2 == 1) ? -1 : 1;
 	len = 0;
+	number = 0;
 	while (*(str + len))
 	{
 		if (*(str + len) < '0' || *(str + len) > '9')
@@ -36,5 +46,5 @@ int	ft_atoi(char *str)
 		number = 10 * number + (*(str + len) - '0');
 		len++;
 	}
-	return (msb * number);
+	return (sign * number);
 }
