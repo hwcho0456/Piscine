@@ -6,11 +6,9 @@
 /*   By: hcho <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 21:36:50 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/26 00:32:47 by hcho             ###   ########.fr       */
+/*   Updated: 2020/11/26 04:02:14 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
 
 int				str_in_base(char c, char *base)
 {
@@ -68,6 +66,10 @@ unsigned int	check_base(char *base)
 			if (*(base + len + i) == *(base + len))
 				return (0);
 			if (*(base + len + i) == '-' || *(base + len + i) == '+')
+				return (0);
+			if (*(base + len + i) >= '\t' && *(base + len + i) <= '\r')
+				return (0);
+			if (*(base + len + i) == ' ')
 				return (0);
 		}
 	}
