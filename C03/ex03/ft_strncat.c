@@ -6,19 +6,24 @@
 /*   By: hcho <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 01:25:31 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/24 05:10:57 by hcho             ###   ########.fr       */
+/*   Updated: 2020/11/25 10:50:44 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
-	int len;
+	int				len;
+	unsigned int	i;
 
 	len = 0;
+	i = 0;
 	while (*(dest + len))
 		len++;
-	while (*(src) || nb-- > 0)
-		*(dest + len++) = *(src++);
-	*(dest + len) = '\0';
+	while (*(src + i) && i < nb)
+	{
+		*(dest + len + i) = *(src + i);
+		i++;
+	}
+	*(dest + len + i) = '\0';
 	return (dest);
 }

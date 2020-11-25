@@ -6,36 +6,29 @@
 /*   By: hcho <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 04:41:53 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/24 05:56:48 by hcho             ###   ########.fr       */
+/*   Updated: 2020/11/25 15:00:29 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
-
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
-	unsigned int s_len;
-	unsigned int d_len;
-	unsigned int len;
+	unsigned int	s_len;
+	unsigned int	i;
+	unsigned int	j;
 
-	d_len = 0;
 	s_len = 0;
-	len = 0;
-	while (src[s_len] != '\0')
+	i = 0;
+	j = 0;
+	while (src[s_len])
 		s_len++;
-	while (dest[d_len] != '\0')
-		d_len++;
-	while ((src[len] != '\0') && size > 1)
+	while (dest[i] != '\0' && i < size)
+		i++;
+	while (src[j] != '\0' && i + j + 1 < size)
 	{
-		dest[d_len + len] = src[len];
-		len++;
-		size--;
+		dest[i + j] = src[j];
+		j++;
 	}
-	if (size > 0)
-	{
-		dest[len] = '\0';
-		return (s_len + size);
-	}
-	return (s_len);
+	if (i != size)
+		dest[i + j] = '\0';
+	return (i + s_len);
 }
