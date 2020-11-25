@@ -6,7 +6,7 @@
 /*   By: hcho <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 06:37:41 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/24 07:32:58 by hcho             ###   ########.fr       */
+/*   Updated: 2020/11/25 21:32:31 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 int	ft_atoi(char *str)
 {
-	unsigned int 	len;
-	int 			msb;
-	int 			number;
+	unsigned int	len;
+	int				msb;
+	int				number;
 
 	number = 0;
 	msb = 1;
@@ -26,7 +26,7 @@ int	ft_atoi(char *str)
 		msb = -1;
 		str++;
 	}
-	else if(*str == '+')
+	else if (*str == '+')
 		str++;
 	len = 0;
 	while (*(str + len))

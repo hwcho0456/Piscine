@@ -6,45 +6,57 @@
 /*   By: hcho <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 07:45:24 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/24 08:46:33 by hcho             ###   ########.fr       */
+/*   Updated: 2020/11/25 21:30:47 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdio.h>
 
-void	cur(int nbr)
+void			cur(int nbr, unsigned int len, char *base)
 {
 	if (nbr == 0)
-		return;
-	cur(nbr / len);
+		return ;
+	cur(nbr / len, len, base);
 	write(1, &base[nbr % len], 1);
-}	
+}
 
-void	ft_putnbr_base(int nbr, char *base)
+unsigned int	check_base(char *base)
 {
 	unsigned int	len;
-	unsigned int	i;
+	int				i;
 
-	n_base = 0 
 	len = -1;
-   	while(*(base + (++len)))
+	while (*(base + (++len)))
 	{
-		i = -1;
-		while(*(base + len + (++i)))
-			if (*(base + len + i) == *(base + len) || *(base + len + i) == ('-' || '+'))
-				return ;
+		i = 0;
+		while (*(base + len + (++i)))
+		{
+			if (*(base + len + i) == *(base + len))
+				return (0);
+			if (*(base + len + i) == '-' || *(base + len + i) == '+')
+				return (0);
+		}
 	}
+	return (len);
+}
+
+void			ft_putnbr_base(int nbr, char *base)
+{
+	unsigned int	len;
+
+	len = check_base(base);
 	if (len <= 1)
 		return ;
 	if (nbr < 0)
 	{
 		write(1, "-", 1);
-		cur(-nbr / len);
+		cur(-nbr / len, len, base);
 		write(1, &base[-nbr % len], 1);
 	}
 	else
 	{
-		cur(nbr / len);
+		cur(nbr / len, len, base);
 		write(1, &base[nbr % len], 1);
 	}
 }
