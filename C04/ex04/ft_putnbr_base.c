@@ -6,7 +6,7 @@
 /*   By: hcho <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 07:45:24 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/26 03:56:30 by hcho             ###   ########.fr       */
+/*   Updated: 2020/11/26 04:17:15 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void			ft_putnbr_base(int nbr, char *base)
 	if (nbr < 0)
 	{
 		write(1, "-", 1);
-		cur(-nbr / len, len, base);
+		cur(-(nbr / (int)len), len, base);
 		write(1, &base[-nbr % len], 1);
 	}
 	else
