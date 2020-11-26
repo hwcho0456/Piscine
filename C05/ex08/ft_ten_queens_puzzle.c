@@ -6,83 +6,78 @@
 /*   By: hcho <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 04:43:18 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/26 07:53:24 by hcho             ###   ########.fr       */
+/*   Updated: 2020/11/26 18:02:31 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdio.h>
 
-int	g_cases;
+int n;
 
-int	positions[5][2];
+int g_cases; // 총 경우의 수
 
-int possible(int row, int column)
+int g_positions[20]; // 퀸의 각 행에서의 열 위치
+
+int possible(int col, int row) // col행 row열의 가능성 
 {
 	int j;
 
 	j = 0;
-	while(j < column)
+	while(j < col)
 	{
-		if (positions[j][0] == row)
+		if (g_positions[j] == row) // 열 중복
 			return (0);
-		if (positions[j][0] - row == positions[j][1] - column)
+        if (g_positions[j] - row == j - col) // y=x 대각선
 			return (0);
-		if (positions[j][0] - row == column - positions[j][1])
+		if (g_positions[j] - row == col - j) // y=-x 대각선
 			return (0);
 		j++;
 	}
 	return (1);
 }
 
-void	dfs(int row, int column)
+void	dfs(int col) // 직전 퀸의 위치를 정보로 받음
 {
-	//int p;
-	//char c;
+    int i;
+	int j;
+	char pos;
 
-	if (column == 5)
+	if (col == n - 1) // 직전 퀸이 마지막 행
 	{
-		for(int x=0; x<5; x++)
-			printf("%d ", positions[x][0]);
-		printf("\n");
-
-	/*	c = 0;
-		p = 0;
-		while (p < 5)
+		j = 0;
+		while (j < n)
 		{	
-			c = '0' + positions[p][0];
-			write(1, &c, 1);
-			p++;
+			pos = g_positions[j] + '0';
+			//write(1, &pos, 1);
+			j++;
 		}
-		write(1,"\n",1);
-		g_cases += 1;*/
-		return ;
+		//write(1,"\n",1);
+		g_cases++; // 경우의 수 증가
+        return ;
 	}
 		
-	int i = 0;
-	while (i <  5)
+	i = 0;
+	while (i <  n) // 각 행에서 0 ~ n-1 열에 놓일 수 있음
 	{
-		if (!possible(i,column + 1))
-		{
-			positions[column + 1][0] = i;
-			positions[column + 1][1] = column + 1;
-			dfs(i,column + 1);
-		}
-		i++;
+        g_positions[col + 1] = i;
+        if (possible(col + 1, i)) 
+            dfs(col + 1);
+        i++;
 	}
 }
 
-int	ft_ten_queens_puzzle(void)
+int	ft_ten_queens_puzzle(int size)
 {
 	int i;
 
-	g_cases = 0;
+    n = size;
+	g_cases = 0; // 경우의 수 초기화
 	i = 0;
-	while(i < 5)
-	{
-		positions[0][0] = i;
-		positions[0][1] = 0;
-		dfs(i,0);
+	while(i < n)
+    {
+		g_positions[0] = i;
+		dfs(0);
 		i++;
 	}
 	return g_cases;
@@ -90,6 +85,7 @@ int	ft_ten_queens_puzzle(void)
 
 int main()
 {
-	printf("%d\n", ft_ten_queens_puzzle());
+    for (int i = 1; i<12; i++) 
+	    printf("%d개에서 가능한 가짓수 : %d\n",i, ft_ten_queens_puzzle(i));
 	return 0;
 }
