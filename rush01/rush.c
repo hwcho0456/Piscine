@@ -41,7 +41,7 @@ void    swap(int *arr, int i, int j)
     arr[j] = temp;
 }
 
-void    *permutation(int *line_map, int i, int n)
+void    permutation(int *line_map, int i, int n)
 {       
     int j;
     int k;
@@ -227,7 +227,6 @@ int see_down_column(int **maps, int col, int n)
 
 int check_final_condition(int **maps, int n, int **condition)
 {
-    int i;
     int j;
 
     j = -1;
@@ -264,7 +263,7 @@ void    print_map(int **maps, int n)
             {                
                 digit = maps[i][j] / 10 + '0';
                 digit2 = maps[i][j] % 10 + '0';
-                write(1, &digit, 1);
+                (digit == '0') ? write(1, " ", 1) : write(1, &digit, 1);
                 write(1, &digit2, 1);
                 write(1, " ", 1);      
             }
@@ -276,8 +275,6 @@ void    print_map(int **maps, int n)
 void    dfs(int **maps, int line, int n, int **condition)
 {
     int i;
-    int j;
- 
 
     if (line == n) 
     {
