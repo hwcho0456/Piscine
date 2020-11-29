@@ -6,7 +6,7 @@
 /*   By: hcho <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/29 14:53:32 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/29 16:09:55 by hcho             ###   ########.fr       */
+/*   Updated: 2020/11/29 17:57:11 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ int		**process_input(char *str, int n)
 {
 	int **condition;
 
-	if (n <= 0)
+	if (n <= 0 || n >= 13)
 		return (0);
 	condition = initialize_condition(n);
 	if (!condition)
