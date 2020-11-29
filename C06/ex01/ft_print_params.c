@@ -6,26 +6,26 @@
 /*   By: hcho <hcho@42.fr>                          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 08:36:28 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/27 08:41:08 by hcho             ###   ########.fr       */
+/*   Updated: 2020/11/29 20:36:35 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
-    int n;
+	int n;
 
-    n = 1;
-    while(n < argc)
-    {
-        while(*argv[n])
-        {
-            write(1, argv[n], 1);
-            argv[n]++;
-        }
-        write(1, "\n", 1);
-        n++;
-    }
-    return 0;
+	n = 1;
+	while (n < argc)
+	{
+		while (*argv[n])
+		{
+			write(1, argv[n], 1);
+			argv[n]++;
+		}
+		write(1, "\n", 1);
+		n++;
+	}
+	return (0);
 }

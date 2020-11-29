@@ -6,19 +6,19 @@
 /*   By: hcho <hcho@42.fr>                          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 08:10:25 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/27 08:35:15 by hcho             ###   ########.fr       */
+/*   Updated: 2020/11/29 18:47:20 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
-    while (*argv[argc-argc])
-    {
-        write(1, argv[0], 1);
-        argv[0]++;
-    }
-    write(1, "\n", 1);
-    return 0;
+	while (*argv[argc - argc])
+	{
+		write(1, argv[0], 1);
+		argv[0]++;
+	}
+	write(1, "\n", 1);
+	return (0);
 }

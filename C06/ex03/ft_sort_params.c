@@ -6,13 +6,13 @@
 /*   By: hcho <hcho@42.fr>                          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 08:43:32 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/27 09:18:05 by hcho             ###   ########.fr       */
+/*   Updated: 2020/11/29 20:42:49 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	ft_strcmp(char *s1, char *s2)
+int		ft_strcmp(char *s1, char *s2)
 {
 	int len;
 
@@ -33,16 +33,16 @@ void	swap(char **argv, int a, int b)
 
 int		partition(char **argv, int left, int right)
 {
-	char *pivot;
-	int low;
-	int high;
+	char	*pivot;
+	int		low;
+	int		high;
 
 	pivot = argv[left];
 	low = left + 1;
 	high = right;
 	while (low <= high)
 	{
-		while (low <= right && ft_strcmp(pivot,argv[low]) >= 0) 
+		while (low <= right && ft_strcmp(pivot, argv[low]) >= 0)
 			low++;
 		while (high >= left + 1 && ft_strcmp(pivot, argv[high]) <= 0)
 			high--;
@@ -65,23 +65,23 @@ void	quicksort(char **argv, int left, int right)
 	}
 }
 
-int main(int argc, char *argv[])
+int		main(int argc, char *argv[])
 {
-    int n;
-    
-    if (argc < 1)
-        return 0;
-    quicksort(argv, 1, argc - 1);
-    n = 0;
-    while (n < argc)
-    {
-        while(*argv[n])
-        {
-            write(1, argv[n], 1);
-            argv[n]++;
-        }
-        write(1, "\n", 1);
-        n++;
-    }
-    return 0;
+	int	n;
+
+	if (argc < 1)
+		return (0);
+	quicksort(argv, 1, argc - 1);
+	n = 0;
+	while (n < argc)
+	{
+		while (*argv[n])
+		{
+			write(1, argv[n], 1);
+			argv[n]++;
+		}
+		write(1, "\n", 1);
+		n++;
+	}
+	return (0);
 }
