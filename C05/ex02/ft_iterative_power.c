@@ -6,11 +6,11 @@
 /*   By: hcho <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/29 16:37:58 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/30 00:17:21 by hcho             ###   ########.fr       */
+/*   Updated: 2020/11/30 03:17:19 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_itrative_power(int nb, int power)
+int	ft_iterative_power(int nb, int power)
 {
 	int	result;
 

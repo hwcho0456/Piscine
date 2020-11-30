@@ -1,40 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_ultimate_range.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hcho <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/24 01:36:18 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/30 16:25:10 by hcho             ###   ########.fr       */
+/*   Created: 2020/11/30 03:11:42 by hcho              #+#    #+#             */
+/*   Updated: 2020/11/30 10:01:44 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strstr(char *str, char *to_find)
-{
-	int f_len;
-	int find;
+#include <stdlib.h>
 
-	if (!*(to_find))
-		return (str);
-	while (*(str))
+int	ft_ultimate_range(int **range, int min, int max)
+{
+	int i;
+
+	if (min >= max)
 	{
-		if (*(str) == *to_find)
-		{
-			find = 1;
-			f_len = -1;
-			while (*(to_find + (++f_len)))
-			{
-				if (*(str + f_len) != *(to_find + f_len))
-				{
-					find = 0;
-					break ;
-				}
-			}
-			if (find == 1)
-				return (str);
-		}
-		str++;
+		*range = 0;
+		return (0);
 	}
-	return (0);
+	*range = (int *)malloc(sizeof(int) * (max - min));
+	if (!*range)
+		return (-1);
+	i = 0;
+	while (min + i < max)
+	{
+		*range[i] = min + i;
+		i++;
+	}
+	return (i);
 }

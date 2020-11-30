@@ -1,40 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_boolean.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hcho <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/24 01:36:18 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/30 16:25:10 by hcho             ###   ########.fr       */
+/*   Created: 2020/11/30 20:36:32 by hcho              #+#    #+#             */
+/*   Updated: 2020/11/30 20:56:02 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strstr(char *str, char *to_find)
-{
-	int f_len;
-	int find;
+#include <unistd.h>
 
-	if (!*(to_find))
-		return (str);
-	while (*(str))
-	{
-		if (*(str) == *to_find)
-		{
-			find = 1;
-			f_len = -1;
-			while (*(to_find + (++f_len)))
-			{
-				if (*(str + f_len) != *(to_find + f_len))
-				{
-					find = 0;
-					break ;
-				}
-			}
-			if (find == 1)
-				return (str);
-		}
-		str++;
-	}
-	return (0);
-}
+#ifndef FT_BOOLEAN_H
+# define FT_BOOLEAN_H
+
+# define t_bool int
+# define TRUE 1
+# define FALSE 0
+# define EVEN(X) X%2==0
+# define SUCCESS 0
+# define EVEN_MSG "I have an even number of arguments.\n"
+# define ODD_MSG "I have an odd number of arguments.\n"
+
+#endif

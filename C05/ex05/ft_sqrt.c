@@ -6,25 +6,27 @@
 /*   By: hcho <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/29 16:43:38 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/29 18:07:04 by hcho             ###   ########.fr       */
+/*   Updated: 2020/11/30 09:46:58 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_sqrt(int nb)
 {
-	int square;
-	int a;
+	double	a;
+	int		i;
 
 	if (nb <= 0)
 		return (0);
-	square = 1;
-	a = 1;
-	while (square <= nb)
+	else if (nb == 1)
+		return (1);
+	a = nb / 2;
+	i = 0;
+	while (i < 30)
 	{
-		if (square == nb)
-			return (a);
-		a++;
-		square = a * a;
+		a = 0.5 * (a + nb / a);
+		i++;
 	}
+	if (a - (double)(int)a <= 0.00000000001)
+		return (int)a;
 	return (0);
 }

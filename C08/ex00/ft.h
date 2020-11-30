@@ -1,40 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hcho <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/24 01:36:18 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/30 16:25:10 by hcho             ###   ########.fr       */
+/*   Created: 2020/11/30 20:34:16 by hcho              #+#    #+#             */
+/*   Updated: 2020/11/30 20:35:44 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strstr(char *str, char *to_find)
-{
-	int f_len;
-	int find;
+#ifndef FT_H
+# define FT_H
 
-	if (!*(to_find))
-		return (str);
-	while (*(str))
-	{
-		if (*(str) == *to_find)
-		{
-			find = 1;
-			f_len = -1;
-			while (*(to_find + (++f_len)))
-			{
-				if (*(str + f_len) != *(to_find + f_len))
-				{
-					find = 0;
-					break ;
-				}
-			}
-			if (find == 1)
-				return (str);
-		}
-		str++;
-	}
-	return (0);
-}
+void	ft_putchar(char c);
+void	ft_swap(int *a, int *b);
+void	ft_putstr(char *str);
+void	ft_strlen(char *str);
+void	ft_strcmp(char *s1, char *s2);
+
+#endif
