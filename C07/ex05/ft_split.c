@@ -6,7 +6,7 @@
 /*   By: hcho <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 17:59:52 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/30 20:07:19 by hcho             ###   ########.fr       */
+/*   Updated: 2020/12/02 10:54:40 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ char	**str_count(char *str, char *charset)
 	int		count;
 	int		len;
 
-	state = 1;
-	count = 1;
+	state = 0;
+	count = 0;
 	len = 0;
 	while (*(str + len))
 	{
@@ -43,10 +43,8 @@ char	**str_count(char *str, char *charset)
 		else
 		{
 			if (state == 0)
-			{
 				count++;
-				state = 1;
-			}
+			state = 1;
 		}
 		len++;
 	}
@@ -95,16 +93,16 @@ char	**ft_split(char *str, char *charset)
 		if (str_in_charset(*(str + len), charset))
 		{
 			if (state == 1)
-			{
 				words[++n] = str_rangecopy(str, i, len);
-				state = 0;
-			}
+			state = 0;
 		}
-		else if (state == 0)
+		else
 		{
-			i = len;
+			if (state == 0)
+				i = len;
 			state = 1;
 		}
 	}
+	words[++n] = str_rangecopy(str, i, len);
 	return (words);
 }

@@ -6,33 +6,33 @@
 /*   By: hcho <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 10:02:07 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/30 20:08:51 by hcho             ###   ########.fr       */
+/*   Updated: 2020/12/02 09:55:03 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
+int		ft_strlen(char *src)
+{
+	int len;
+
+	len = 0;
+	while (*(src + len))
+		len++;
+	return (len);
+}
+
 char	*ft_strcat(char *dest, char *src)
 {
 	int len;
+	int i;
 
-	len = 0;
-	while (*(dest + len))
-		len++;
-	while (*src)
-		*(dest + len++) = *(src++);
-	*(dest + len) = '\0';
+	len = ft_strlen(dest);
+	i = -1;
+	while (*(src + (++i)))
+		*(dest + len + i) = *(src + i);
+	*(dest + len + i) = '\0';
 	return (dest);
-}
-
-int		*ft_strlen(char *src)
-{
-	int len;
-
-	len = 0;
-	while (*(str + len))
-		len++;
-	return (len);
 }
 
 void	initialize(char *src)
@@ -62,7 +62,7 @@ char	*ft_strjoin(int size, char **str, char *sep)
 	while (++i < size)
 		str_len += ft_strlen(str[i]);
 	sep_len = ft_strlen(sep);
-	dest = (char *)malloc(sizeof(char) * (str_len + sep_len * (size - 1)));
+	dest = (char *)malloc(sizeof(char) * (str_len + sep_len * (size - 1) + 1));
 	if (!dest)
 		return (0);
 	initialize(dest);

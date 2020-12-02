@@ -6,7 +6,7 @@
 /*   By: hcho <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 10:22:21 by hcho              #+#    #+#             */
-/*   Updated: 2020/11/30 14:43:01 by hcho             ###   ########.fr       */
+/*   Updated: 2020/12/02 10:42:46 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,16 +62,16 @@ int		check_base(char *base)
 	len = -1;
 	while (*(base + (++len)))
 	{
+		if (*(base + len) == '-' || *(base + len) == '+')
+			return (0);
+		if (*(base + len) >= '\t' && *(base + len) <= '\r')
+			return (0);
+		if (*(base + len) == ' ')
+			return (0);
 		i = 0;
 		while (*(base + len + (++i)))
 		{
 			if (*(base + len + i) == *(base + len))
-				return (0);
-			if (*(base + len + i) == '-' || *(base + len + i) == '+')
-				return (0);
-			if (*(base + len + i) >= '\t' && *(base + len + i) <= '\r')
-				return (0);
-			if (*(base + len + i) == ' ')
 				return (0);
 		}
 	}
