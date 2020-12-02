@@ -6,7 +6,7 @@
 /*   By: hcho <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 10:02:07 by hcho              #+#    #+#             */
-/*   Updated: 2020/12/02 09:55:03 by hcho             ###   ########.fr       */
+/*   Updated: 2020/12/02 23:25:39 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,16 +47,32 @@ void	initialize(char *src)
 	}
 }
 
+char	*ft_fillstr(int size, char *dest, char **str, char *sep)
+{
+	int i;
+
+	ft_strcat(dest, str[0]);
+	i = 0;
+	while (++i < size)
+	{
+		ft_strcat(dest, sep);
+		ft_strcat(dest, str[i]);
+	}
+	return (dest);
+}
+
 char	*ft_strjoin(int size, char **str, char *sep)
 {
 	char	*dest;
 	int		sep_len;
 	int		str_len;
-	int		i;
-	int		j;
 
 	if (size == 0)
-		return (0);
+	{
+		dest = (char *)malloc(sizeof(char));
+		*dest = '\0';
+		return (dest);
+	}
 	str_len = 0;
 	i = -1;
 	while (++i < size)
@@ -66,12 +82,6 @@ char	*ft_strjoin(int size, char **str, char *sep)
 	if (!dest)
 		return (0);
 	initialize(dest);
-	ft_strcat(dest, str[0]);
-	i = 0;
-	while (++i < size)
-	{
-		ft_strcat(dest, sep);
-		ft_strcat(dest, str[i]);
-	}
+	ft_fillstr(size, dest, str, sep);
 	return (dest);
 }
