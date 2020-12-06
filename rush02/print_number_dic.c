@@ -6,7 +6,7 @@
 /*   By: hcho <hcho@42.fr>                          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 00:16:24 by hcho              #+#    #+#             */
-/*   Updated: 2020/12/06 16:06:48 by hcho             ###   ########.fr       */
+/*   Updated: 2020/12/06 19:50:39 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,27 @@
 #include "translate.h"
 #include <stdlib.h>
 #include <unistd.h>
+#include <stdio.h>
 
 void	print_exact_number(char **dic, char *str)
 {
 	int i;
 
-	i = 0;
-	while (dic[2 * i])
+    if (g_unit == 1 && ft_strlen(str) >= 3)
+    {
+        i = -1;
+        while (dic[2 * (++i)])
+	    {
+		    if (ft_strcmp(dic[2 * i], "1") == 0)
+            {
+			    write(1, dic[2 * i + 1], ft_strlen(dic[2 * i + 1]));
+                write(1, " ", 1);
+            }
+        }
+    }
+    g_unit = 0;
+	i = -1;
+	while (dic[2 * (++i)])
 	{
 		if (ft_strcmp(dic[2 * i], str) == 0)
         {
@@ -30,7 +44,6 @@ void	print_exact_number(char **dic, char *str)
 			write(1, dic[2 * i + 1], ft_strlen(dic[2 * i + 1]));
             (g_p != 0) ? write(1, " ", 1) : write(1, "\n", 1);
         }
-		i++;
 	}
 }
 

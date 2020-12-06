@@ -6,12 +6,13 @@
 /*   By: hcho <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 19:08:17 by hcho              #+#    #+#             */
-/*   Updated: 2020/12/06 11:08:48 by hcho             ###   ########.fr       */
+/*   Updated: 2020/12/06 19:48:48 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "str_util.h"
+#include "translate.h"
 		
 char	*ft_strdup_front(char *str, int i)
 {
@@ -26,6 +27,7 @@ char	*ft_strdup_front(char *str, int i)
 		len++;
 	}
 	*(dest + len) = '\0';
+    g_unit = 0;
 	return (dest);
 }
 
@@ -58,7 +60,8 @@ char	*ft_strdup_back(char *str, int i)
 	{
 		frontzero++;
 		len++;
-	}	
+    }
+    g_unit = 1;
 	dest = (char *)malloc(sizeof(char) * (ft_strlen(str) - i - frontzero + 1));
 	len = 0;
 	while (*(str + i + frontzero + len))

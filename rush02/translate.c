@@ -6,7 +6,7 @@
 /*   By: hcho <hcho@42.fr>                          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 22:31:18 by hcho              #+#    #+#             */
-/*   Updated: 2020/12/06 15:57:30 by hcho             ###   ########.fr       */
+/*   Updated: 2020/12/06 19:35:35 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # define printError write(1,"Dict Error!\n",12);
 
 int g_p;
+int g_unit;
 
 int		check_number(char **dic, char *str)
 {
@@ -97,16 +98,14 @@ void    dic_translate(char *dic_file, char *str)
 	if (check_number(dictionary, str) == 1)
     {
         g_p = g_c;
+        g_unit = ((ft_strlen(pstr) >= 2) ? 1 : 0);
 		print_number(dictionary, pstr);
     }
     else
 		printError;
     i = -1;
     while (dictionary[2 * (++i)])
-    {
-        free(dictionary[2 * i]);
-        free(dictionary[2 * i + 1]);
-    }
+        freetwice(dictionary[2 * i], dictionary[2 * i + 1]);
     free(dictionary);
 }
 
