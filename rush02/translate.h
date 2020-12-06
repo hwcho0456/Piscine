@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_dic.c                                         :+:      :+:    :+:   */
+/*   translate.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hcho <hcho@42.fr>                          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/04 22:37:21 by hcho              #+#    #+#             */
-/*   Updated: 2020/12/06 04:52:13 by hcho             ###   ########.fr       */
+/*   Created: 2020/12/06 02:23:17 by hcho              #+#    #+#             */
+/*   Updated: 2020/12/06 15:58:40 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "file_util.h"
-#include "str_util.h"
-#include <unistd.h>
+#ifndef TRANSLATE_H
+# define TRANSLATE_H
 
-# define printError write(1,"DicError!\n",10);
+int g_p;
+void    translate(char *str);
+void    dic_translate(char *dic_file, char *str);
+int		check_number(char **dic, char *str);
+void	print_number(char **dict, char *str);
 
-void	print_dic(void)
-{
-    char *file_str;
-
-    if  (check_dic("numbers.dict") == 0)
-    {
-        printError;
-        return;
-    }
-    file_str = read_file("numbers.dict");
-    ft_putstr(file_str);
-}
+#endif

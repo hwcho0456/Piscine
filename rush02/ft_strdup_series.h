@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_dic.c                                         :+:      :+:    :+:   */
+/*   ft_strdup_series.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hcho <hcho@42.fr>                          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/04 22:37:21 by hcho              #+#    #+#             */
-/*   Updated: 2020/12/06 04:52:13 by hcho             ###   ########.fr       */
+/*   Created: 2020/12/06 02:19:43 by hcho              #+#    #+#             */
+/*   Updated: 2020/12/06 10:20:31 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "file_util.h"
-#include "str_util.h"
-#include <unistd.h>
+#ifndef FT_STRDUP_SERIES_H
+# define FT_STRDUP_SERIES_H
 
-# define printError write(1,"DicError!\n",10);
+char	*ft_strdup_front(char *str, int i);
+char	*ft_strdup_unit(int i);
+char	*ft_strdup_back(char *str, int i);
 
-void	print_dic(void)
-{
-    char *file_str;
-
-    if  (check_dic("numbers.dict") == 0)
-    {
-        printError;
-        return;
-    }
-    file_str = read_file("numbers.dict");
-    ft_putstr(file_str);
-}
+#endif

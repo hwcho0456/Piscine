@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_dic.c                                         :+:      :+:    :+:   */
+/*   ft_strjoin.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hcho <hcho@42.fr>                          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/04 22:37:21 by hcho              #+#    #+#             */
-/*   Updated: 2020/12/06 04:52:13 by hcho             ###   ########.fr       */
+/*   Created: 2020/12/06 02:07:00 by hcho              #+#    #+#             */
+/*   Updated: 2020/12/06 02:08:05 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "file_util.h"
-#include "str_util.h"
-#include <unistd.h>
+#ifndef FT_STRJOIN_H
+# define FT_STRJOIN_H
 
-# define printError write(1,"DicError!\n",10);
+char	*ft_strcat(char *dest, char *src);
+void	initialize(char *src);
+char	*ft_fillstr(int size, char *dest, char **str, char *sep);
+char	*ft_strjoin(int size, char **str, char *sep);
 
-void	print_dic(void)
-{
-    char *file_str;
-
-    if  (check_dic("numbers.dict") == 0)
-    {
-        printError;
-        return;
-    }
-    file_str = read_file("numbers.dict");
-    ft_putstr(file_str);
-}
+#endif

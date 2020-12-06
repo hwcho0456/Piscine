@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_dic.c                                         :+:      :+:    :+:   */
+/*   read_dic.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hcho <hcho@42.fr>                          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/04 22:37:21 by hcho              #+#    #+#             */
-/*   Updated: 2020/12/06 04:52:13 by hcho             ###   ########.fr       */
+/*   Created: 2020/12/06 02:15:54 by hcho              #+#    #+#             */
+/*   Updated: 2020/12/06 02:16:35 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "file_util.h"
-#include "str_util.h"
-#include <unistd.h>
+#ifndef READ_DIC_H
+# define READ_DIC_H
 
-# define printError write(1,"DicError!\n",10);
+void	print_dic(void);
 
-void	print_dic(void)
-{
-    char *file_str;
-
-    if  (check_dic("numbers.dict") == 0)
-    {
-        printError;
-        return;
-    }
-    file_str = read_file("numbers.dict");
-    ft_putstr(file_str);
-}
+#endif

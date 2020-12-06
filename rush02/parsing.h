@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_dic.c                                         :+:      :+:    :+:   */
+/*   parsing.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hcho <hcho@42.fr>                          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/04 22:37:21 by hcho              #+#    #+#             */
-/*   Updated: 2020/12/06 04:52:13 by hcho             ###   ########.fr       */
+/*   Created: 2020/12/06 02:17:20 by hcho              #+#    #+#             */
+/*   Updated: 2020/12/06 02:19:11 by hcho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "file_util.h"
-#include "str_util.h"
-#include <unistd.h>
+#ifndef PARSING_H
+# define PARSING_H
 
-# define printError write(1,"DicError!\n",10);
+char	*eliminate_space(char *str);
+int	count_except_space(char **strs);
+char	**copy_except_space(char **file_line);
+char	**parsing_dic(char *dic);
 
-void	print_dic(void)
-{
-    char *file_str;
-
-    if  (check_dic("numbers.dict") == 0)
-    {
-        printError;
-        return;
-    }
-    file_str = read_file("numbers.dict");
-    ft_putstr(file_str);
-}
+#endif
